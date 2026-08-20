@@ -161,6 +161,40 @@
     </div>
   {% endif %}
 
+  <!-- Documento PDF -->
+  {% if project.pdf_document %}
+    <div class="case-section reveal">
+      <p class="case-section-label">Documento</p>
+      <h2 class="case-section-title">Trabalho Completo</h2>
+      <div class="pdf-viewer-wrapper">
+        <iframe
+          class="pdf-viewer"
+          src="{{ url_for('static', filename=project.pdf_document) }}"
+          title="Documento: {{ project.title }}"
+          loading="lazy"
+          aria-label="Visualizador do TCC — {{ project.title }}"
+        ></iframe>
+      </div>
+      <div style="margin-top: var(--space-md); display: flex; gap: var(--space-sm); flex-wrap: wrap; align-items: center">
+        <a
+          href="{{ url_for('static', filename=project.pdf_document) }}"
+          download
+          class="btn btn--primary"
+        >
+          Baixar PDF <span class="btn-arrow" aria-hidden="true">↓</span>
+        </a>
+        <a
+          href="{{ url_for('static', filename=project.pdf_document) }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn--secondary"
+        >
+          Abrir em nova aba <span class="btn-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  {% endif %}
+
   <!-- Galeria -->
   {% if project.gallery %}
     <div class="case-section reveal">
