@@ -65,6 +65,7 @@
                 src="{{ url_for('static', filename='images/' + project.cover_image) }}"
                 alt="{{ project.alt_texts.cover if project.alt_texts and project.alt_texts.cover else project.title }}"
                 loading="{% if loop.first %}eager{% else %}lazy{% endif %}"
+                {% if project.cover_position %}style="object-position: {{ project.cover_position }}"{% endif %}
               >
             {% else %}
               <div class="carousel-slide__placeholder" aria-hidden="true">

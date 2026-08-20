@@ -79,6 +79,7 @@
       src="{{ url_for('static', filename='images/' + project.cover_image) }}"
       alt="{{ project.alt_texts.cover if project.alt_texts and project.alt_texts.cover else project.title }}"
       loading="eager"
+      {% if project.cover_position %}style="object-position: {{ project.cover_position }}"{% endif %}
       onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
     >
     <div class="case-cover-placeholder" style="display:none" aria-hidden="true">
