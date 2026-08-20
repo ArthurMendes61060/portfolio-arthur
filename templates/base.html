@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{% block meta_description %}Arthur Mendes — Designer Gráfico e Engenheiro de Prompts. Estratégia, criatividade e tecnologia transformadas em linguagem visual. Joinville, SC.{% endblock %}">
+  <meta name="author" content="Arthur Mendes">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{% block og_title %}Arthur Mendes — Designer Gráfico{% endblock %}">
+  <meta property="og:description" content="{% block og_description %}Estratégia, criatividade e tecnologia transformadas em linguagem visual.{% endblock %}">
+  <meta property="og:image" content="{{ url_for('static', filename='images/about/arthur-mendes.jpg', _external=True) }}">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% block twitter_title %}Arthur Mendes — Designer Gráfico{% endblock %}">
+  <meta name="twitter:description" content="Estratégia, criatividade e tecnologia transformadas em linguagem visual.">
+
+  <title>{% block title %}Arthur Mendes — Designer Gráfico{% endblock %}</title>
+
+  <!-- Fonts: Inter + Barlow (fallback display para Nimbus Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/themes.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+  <!-- NAVEGAÇÃO -->
+  <header class="site-header" role="banner">
+    <nav class="nav container" aria-label="Navegação principal">
+      <a href="{{ url_for('index') }}" class="nav-logo" aria-label="Arthur Mendes — início">
+        MENDES<span class="nav-logo-slash" aria-hidden="true">/</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <ul class="nav-menu" id="nav-menu" role="list">
+        <li><a href="{{ url_for('projects') }}" class="nav-link {% if request.endpoint == 'projects' or request.endpoint == 'project_detail' %}nav-link--active{% endif %}">Projetos</a></li>
+        <li><a href="{{ url_for('about') }}" class="nav-link {% if request.endpoint == 'about' %}nav-link--active{% endif %}">Sobre</a></li>
+        <li><a href="{{ url_for('contact') }}" class="nav-link {% if request.endpoint == 'contact' %}nav-link--active{% endif %}">Contato</a></li>
+      </ul>
+
+      <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+        <svg class="theme-icon theme-icon--sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="theme-icon theme-icon--moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main id="main-content" tabindex="-1">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">MENDES<span class="footer-logo-slash" aria-hidden="true">/</span></span>
+        <p class="footer-tagline">Design · Direção · Tecnologia</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Links do rodapé">
+        <a href="{{ url_for('projects') }}">Projetos</a>
+        <a href="{{ url_for('about') }}">Sobre</a>
+        <a href="{{ url_for('contact') }}">Contato</a>
+      </nav>
+
+      <div class="footer-social">
+        <a href="https://www.instagram.com/arthur__mnds" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Arthur Mendes">Instagram</a>
+        <a href="https://www.linkedin.com/in/arthurrfmendes/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Arthur Mendes">LinkedIn</a>
+      </div>
+
+      <p class="footer-copy">&copy; <span id="footer-year"></span> Arthur Mendes. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/carousel.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/filters.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>

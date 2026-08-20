@@ -1,0 +1,45 @@
+/* ============================================================
+   TEMAS — Claro e Escuro
+   Paleta baseada na identidade MENDES/
+   ============================================================ */
+
+/* Tema claro (padrão) */
+[data-theme="light"] {
+  --color-bg:           #F7F6F2;
+  --color-surface:      #FFFFFF;
+  --color-surface-alt:  #F0EFE9;
+  --color-text:         #0A0A0C;
+  --color-text-muted:   #7A7974;
+  --color-accent:       #E51B23;
+  --color-accent-hover: #c41019;
+  --color-border:       #E0DFDB;
+  --color-overlay:      rgba(10, 10, 12, 0.5);
+  --color-card-hover:   rgba(10, 10, 12, 0.04);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.07);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.09);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.13);
+}
+
+/* Tema escuro */
+[data-theme="dark"] {
+  --color-bg:           #0A0A0C;
+  --color-surface:      #141414;
+  --color-surface-alt:  #1C1C1E;
+  --color-text:         #F7F6F2;
+  --color-text-muted:   #6B6B6B;
+  --color-accent:       #E51B23;
+  --color-accent-hover: #ff2530;
+  --color-border:       #2A2A2A;
+  --color-overlay:      rgba(0, 0, 0, 0.65);
+  --color-card-hover:   rgba(247, 246, 242, 0.04);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Transição suave entre temas */
+html {
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+}

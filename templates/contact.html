@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block title %}Contato — Arthur Mendes{% endblock %}
+{% block meta_description %}Entre em contato com Arthur Mendes — Designer Gráfico e Engenheiro de Prompts. Joinville, SC. arthur.roberto.mendes@gmail.com{% endblock %}
+
+{% block content %}
+
+<section class="section" style="padding-top: calc(4rem + var(--space-2xl))" aria-labelledby="contact-title">
+  <div class="container">
+
+    <div class="reveal">
+      <p class="section-label">Contato</p>
+      <h1 class="section-title" id="contact-title">Vamos conversar?</h1>
+      <p style="margin-top: var(--space-md); color: var(--color-text-muted); max-width: 50ch; line-height: 1.7">
+        Estou disponível para projetos freelancer, colaborações e novas oportunidades. Entre em contato e vamos trabalhar juntos.
+      </p>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 1fr 1.2fr; gap: var(--space-2xl); margin-top: var(--space-2xl); align-items: start">
+
+      <!-- Informações de contato -->
+      <div class="reveal">
+        <h2 style="font-family: var(--font-display); font-size: var(--text-xl); font-weight:900; text-transform:uppercase; letter-spacing:-0.01em; margin-bottom: var(--space-lg)">Informações</h2>
+
+        <div class="contact-cards">
+          <a href="mailto:arthur.roberto.mendes@gmail.com" class="contact-card">
+            <span class="contact-card__icon" aria-hidden="true">✉</span>
+            <span class="contact-card__label">E-mail</span>
+            <span class="contact-card__value">arthur.roberto.mendes@gmail.com</span>
+          </a>
+
+          <a href="https://wa.me/5547988463036" target="_blank" rel="noopener noreferrer" class="contact-card">
+            <span class="contact-card__icon" aria-hidden="true">📱</span>
+            <span class="contact-card__label">WhatsApp</span>
+            <span class="contact-card__value">+55 47 98846-3036</span>
+          </a>
+
+          <a href="https://www.instagram.com/arthur__mnds" target="_blank" rel="noopener noreferrer" class="contact-card">
+            <span class="contact-card__icon" aria-hidden="true">◎</span>
+            <span class="contact-card__label">Instagram</span>
+            <span class="contact-card__value">@arthur__mnds</span>
+          </a>
+
+          <a href="https://www.linkedin.com/in/arthurrfmendes/" target="_blank" rel="noopener noreferrer" class="contact-card">
+            <span class="contact-card__icon" aria-hidden="true">in</span>
+            <span class="contact-card__label">LinkedIn</span>
+            <span class="contact-card__value">arthurrfmendes</span>
+          </a>
+        </div>
+
+        <div style="margin-top: var(--space-xl); padding: var(--space-lg); background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg)">
+          <p style="font-family: var(--font-display); font-size: var(--text-xs); font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color: var(--color-text-muted); margin-bottom: var(--space-xs)">Localização</p>
+          <p style="font-family: var(--font-display); font-size: var(--text-lg); font-weight:900; text-transform:uppercase; letter-spacing:-0.01em">Joinville, SC</p>
+          <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin-top: 0.25rem">Disponível para trabalho remoto</p>
+        </div>
+      </div>
+
+      <!-- Formulário -->
+      <div class="reveal">
+        <h2 style="font-family: var(--font-display); font-size: var(--text-xl); font-weight:900; text-transform:uppercase; letter-spacing:-0.01em; margin-bottom: var(--space-lg)">Enviar Mensagem</h2>
+
+        <div id="form-success" class="form-message form-message--success" role="alert" aria-live="polite" style="display:none">
+          Mensagem enviada! Em breve entrarei em contato.
+        </div>
+        <div id="form-error" class="form-message form-message--error" role="alert" aria-live="polite" style="display:none">
+          Erro ao enviar. Por favor, envie um e-mail diretamente para arthur.roberto.mendes@gmail.com
+        </div>
+
+        <form class="contact-form" id="contact-form" novalidate aria-label="Formulário de contato">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="name">Nome <span aria-hidden="true">*</span></label>
+              <input
+                class="form-input"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Seu nome"
+                required
+                autocomplete="name"
+                aria-required="true"
+              >
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">E-mail <span aria-hidden="true">*</span></label>
+              <input
+                class="form-input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="seu@email.com"
+                required
+                autocomplete="email"
+                aria-required="true"
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="subject">Assunto</label>
+            <input
+              class="form-input"
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="Sobre o que quer conversar?"
+              autocomplete="off"
+            >
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="message">Mensagem <span aria-hidden="true">*</span></label>
+            <textarea
+              class="form-textarea"
+              id="message"
+              name="message"
+              placeholder="Conte um pouco sobre seu projeto ou sua ideia..."
+              required
+              aria-required="true"
+              rows="6"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--primary" style="width:100%; justify-content:center">
+            Enviar Mensagem <span class="btn-arrow" aria-hidden="true">→</span>
+          </button>
+
+          <p style="font-size: var(--text-xs); color: var(--color-text-muted); text-align:center; margin-top: var(--space-sm)">
+            Ou envie diretamente para
+            <a href="mailto:arthur.roberto.mendes@gmail.com" style="color: var(--color-accent); font-weight:600">
+              arthur.roberto.mendes@gmail.com
+            </a>
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+  const form = document.getElementById('contact-form');
+  const successMsg = document.getElementById('form-success');
+  const errorMsg = document.getElementById('form-error');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name    = form.name.value.trim();
+    const email   = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    if (!name || !email || !message) {
+      errorMsg.textContent = 'Por favor, preencha nome, e-mail e mensagem.';
+      errorMsg.style.display = 'block';
+      successMsg.style.display = 'none';
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      errorMsg.textContent = 'Por favor, informe um e-mail válido.';
+      errorMsg.style.display = 'block';
+      successMsg.style.display = 'none';
+      return;
+    }
+
+    /* Fallback: abre cliente de e-mail com os dados preenchidos */
+    const subject = encodeURIComponent(form.subject.value.trim() || 'Contato pelo portfólio');
+    const body    = encodeURIComponent(`Nome: ${name}\nE-mail: ${email}\n\n${message}`);
+    window.location.href = `mailto:arthur.roberto.mendes@gmail.com?subject=${subject}&body=${body}`;
+
+    successMsg.style.display = 'block';
+    errorMsg.style.display   = 'none';
+    form.reset();
+  });
+</script>
+{% endblock %}

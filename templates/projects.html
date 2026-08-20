@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}Projetos — Arthur Mendes{% endblock %}
+{% block meta_description %}Portfólio de projetos de Arthur Mendes — Designer Gráfico e Engenheiro de Prompts. Identidade visual, design esportivo, social media, IA e muito mais.{% endblock %}
+
+{% block content %}
+
+<section class="section" style="padding-top: calc(4rem + var(--space-2xl))" aria-labelledby="projects-title">
+  <div class="container">
+
+    <div class="reveal">
+      <p class="section-label">Portfólio</p>
+      <h1 class="section-title" id="projects-title">Projetos</h1>
+      <p style="margin-top: var(--space-md); color: var(--color-text-muted); max-width: 50ch;">
+        Trabalhos selecionados em identidade visual, design esportivo, social media, IA generativa e muito mais.
+      </p>
+    </div>
+
+    <!-- Filtros por categoria -->
+    <div class="filter-bar reveal" role="group" aria-label="Filtrar projetos por categoria" style="margin-top: var(--space-xl)">
+      <button
+        class="filter-btn {% if not active_category %}filter-btn--active{% endif %}"
+        data-category=""
+        aria-pressed="{{ 'true' if not active_category else 'false' }}"
+      >
+        Todos
+      </button>
+      {% for cat in categories %}
+        <button
+          class="filter-btn {% if active_category == cat %}filter-btn--active{% endif %}"
+          data-category="{{ cat }}"
+          aria-pressed="{{ 'true' if active_category == cat else 'false' }}"
+        >
+          {{ cat }}
+        </button>
+      {% endfor %}
+    </div>
+
+    <!-- Grade de projetos -->
+    <div class="project-grid" id="project-grid" aria-live="polite" aria-label="Lista de projetos">
+      {% for project in projects %}
+        <a
+          href="{{ url_for('project_detail', slug=project.slug) }}"
+          class="project-card reveal"
+          data-categories="{{ project.categories | join(',') }}"
+          aria-label="{{ project.title }} — {{ project.year }}"
+        >
+          <div class="project-card__image-wrap">
+            {% if project.cover_image %}
+              <img
+                class="project-card__image"
+                src="{{ url_for('static', filename='images/' + project.cover_image) }}"
+                alt="{{ project.alt_texts.cover if project.alt_texts and project.alt_texts.cover else project.title }}"
+                loading="lazy"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              >
+              <div class="project-card__image-placeholder" style="display:none" aria-hidden="true">
+                Imagem em breve
+              </div>
+            {% else %}
+              <div class="project-card__image-placeholder" aria-hidden="true">
+                Imagem em breve
+              </div>
+            {% endif %}
+
+            {% if project.in_development %}
+              <span class="project-card__badge">Em Desenvolvimento</span>
+            {% endif %}
+          </div>
+
+          <div class="project-card__body">
+            {% if project.categories %}
+              <div class="project-card__categories" aria-label="Categorias">
+                {% for cat in project.categories %}
+                  <span class="project-card__category">{{ cat }}</span>
+                {% endfor %}
+              </div>
+            {% endif %}
+
+            <h2 class="project-card__title">{{ project.title }}</h2>
+
+            {% if project.summary and '[adicionar' not in project.summary %}
+              <p class="project-card__summary">{{ project.summary }}</p>
+            {% endif %}
+          </div>
+
+          <div class="project-card__footer">
+            <span class="project-card__year">{{ project.year }}</span>
+            <span class="project-card__arrow" aria-hidden="true">→</span>
+          </div>
+        </a>
+      {% else %}
+        <p style="color: var(--color-text-muted); grid-column: 1 / -1; padding: var(--space-2xl) 0; text-align: center;">
+          Nenhum projeto encontrado para esta categoria.
+        </p>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" aria-labelledby="cta-projects-title">
+  <div class="container">
+    <h2 class="cta-title reveal" id="cta-projects-title">Tem um projeto em mente?</h2>
+    <p class="cta-subtitle reveal">Vamos conversar sobre como posso ajudar.</p>
+    <div style="display:flex; gap: var(--space-sm); justify-content:center; flex-wrap:wrap;">
+      <a href="{{ url_for('contact') }}" class="btn btn--primary">Entrar em Contato</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+  /* Filtro client-side para resposta imediata sem recarregar a página */
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const cat = btn.dataset.category;
+
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('filter-btn--active');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('filter-btn--active');
+      btn.setAttribute('aria-pressed', 'true');
+
+      document.querySelectorAll('.project-card').forEach(card => {
+        const cats = card.dataset.categories || '';
+        if (!cat || cats.includes(cat)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+{% endblock %}

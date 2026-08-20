@@ -1,0 +1,292 @@
+{% extends "base.html" %}
+
+{% block title %}Arthur Mendes — Designer Gráfico e Engenheiro de Prompts{% endblock %}
+{% block meta_description %}Arthur Mendes — Designer Gráfico e Engenheiro de Prompts em Joinville, SC. Estratégia, criatividade e tecnologia transformadas em linguagem visual.{% endblock %}
+
+{% block content %}
+
+<!-- ========================= HERO ========================= -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero-inner">
+
+    <div class="hero-text">
+      <p class="hero-tagline reveal">Design · Direção · Tecnologia</p>
+      <h1 class="hero-headline" id="hero-title">
+        <span class="hero-headline-line"><span class="reveal" style="transition-delay:0.1s">DESIGN</span></span>
+        <span class="hero-headline-line hero-headline-line--accent"><span class="reveal" style="transition-delay:0.2s">DIREÇÃO</span></span>
+        <span class="hero-headline-line"><span class="reveal" style="transition-delay:0.3s">TECNOLOGIA</span></span>
+      </h1>
+    </div>
+
+    <div class="hero-meta">
+      <p class="hero-bio reveal" style="transition-delay:0.4s">
+        Designer Gráfico e Engenheiro de Prompts em Joinville, SC. Unindo criatividade, pensamento estratégico e inteligência artificial para criar soluções visuais autênticas e eficientes.
+      </p>
+      <div class="hero-actions reveal" style="transition-delay:0.5s">
+        <a href="{{ url_for('projects') }}" class="btn btn--primary">
+          Ver Projetos <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="{{ url_for('contact') }}" class="btn btn--secondary">Contato</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <span class="hero-scroll-line"></span>
+  </div>
+</section>
+
+<!-- ====================== PROJETOS EM DESTAQUE ====================== -->
+{% if featured %}
+<section class="section" aria-labelledby="featured-title">
+  <div class="container">
+
+    <div class="reveal">
+      <p class="section-label">Projetos em Destaque</p>
+      <h2 class="section-title" id="featured-title">Trabalhos Selecionados</h2>
+    </div>
+
+    <div style="margin-top: var(--space-xl)">
+      <!-- Carrossel -->
+      <div class="carousel reveal" id="main-carousel" aria-label="Projetos em destaque" role="region">
+        <div class="carousel-track" id="carousel-track" aria-live="polite">
+          {% for project in featured %}
+          <article
+            class="carousel-slide"
+            role="group"
+            aria-label="Slide {{ loop.index }} de {{ featured|length }}: {{ project.title }}"
+            aria-roledescription="slide"
+          >
+            {% if project.cover_image and project.cover_image != '' %}
+              <img
+                class="carousel-slide__image"
+                src="{{ url_for('static', filename='images/' + project.cover_image) }}"
+                alt="{{ project.alt_texts.cover if project.alt_texts and project.alt_texts.cover else project.title }}"
+                loading="{% if loop.first %}eager{% else %}lazy{% endif %}"
+              >
+            {% else %}
+              <div class="carousel-slide__placeholder" aria-hidden="true">
+                {{ project.title }}
+              </div>
+            {% endif %}
+
+            <div class="carousel-slide__overlay" aria-hidden="true"></div>
+
+            <div class="carousel-slide__content">
+              {% if project.in_development %}
+                <span class="carousel-slide__badge">Em Desenvolvimento</span>
+              {% endif %}
+
+              {% if project.categories %}
+                <div class="carousel-slide__categories" aria-label="Categorias">
+                  {% for cat in project.categories %}
+                    <span class="carousel-slide__category">{{ cat }}</span>
+                  {% endfor %}
+                </div>
+              {% endif %}
+
+              <h3 class="carousel-slide__title">{{ project.title }}</h3>
+
+              {% if project.summary %}
+                <p class="carousel-slide__summary">{{ project.summary }}</p>
+              {% endif %}
+
+              <p class="carousel-slide__meta">
+                {{ project.year }}
+                {% if project.client %} · {{ project.client }}{% endif %}
+              </p>
+
+              <a
+                href="{{ url_for('project_detail', slug=project.slug) }}"
+                class="btn btn--primary"
+                aria-label="Ver projeto: {{ project.title }}"
+              >
+                Ver Projeto <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Controles do carrossel -->
+      <div class="carousel-controls">
+        <div class="carousel-indicators" role="tablist" aria-label="Slides do carrossel">
+          {% for project in featured %}
+            <button
+              class="carousel-indicator {% if loop.first %}carousel-indicator--active{% endif %}"
+              role="tab"
+              aria-selected="{{ 'true' if loop.first else 'false' }}"
+              aria-label="Ir para slide {{ loop.index }}: {{ project.title }}"
+              data-index="{{ loop.index0 }}"
+            ></button>
+          {% endfor %}
+        </div>
+
+        <div class="carousel-nav" role="group" aria-label="Navegação do carrossel">
+          <button class="carousel-btn" id="carousel-prev" aria-label="Slide anterior">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+          </button>
+          <button class="carousel-btn" id="carousel-next" aria-label="Próximo slide">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endif %}
+
+<!-- ====================== ESPECIALIDADES ====================== -->
+<section class="section" style="background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);" aria-labelledby="specialties-title">
+  <div class="container">
+
+    <div class="reveal">
+      <p class="section-label">O que faço</p>
+      <h2 class="section-title" id="specialties-title">Especialidades</h2>
+    </div>
+
+    <div class="specialties-grid reveal" style="margin-top: var(--space-xl)">
+      <div class="specialty-item">
+        <span class="specialty-icon" aria-hidden="true">◆</span>
+        <h3 class="specialty-title">Identidade Visual</h3>
+        <p class="specialty-desc">Criação de marcas, logos e sistemas de identidade visual completos e coerentes.</p>
+      </div>
+      <div class="specialty-item">
+        <span class="specialty-icon" aria-hidden="true">◈</span>
+        <h3 class="specialty-title">Direção de Arte</h3>
+        <p class="specialty-desc">Conceito visual, direcionamento estético e consistência de linguagem em campanhas e projetos.</p>
+      </div>
+      <div class="specialty-item">
+        <span class="specialty-icon" aria-hidden="true">▲</span>
+        <h3 class="specialty-title">Design Esportivo</h3>
+        <p class="specialty-desc">Uniformes, estampas e identidade visual para marcas e times esportivos.</p>
+      </div>
+      <div class="specialty-item">
+        <span class="specialty-icon" aria-hidden="true">◉</span>
+        <h3 class="specialty-title">Social Media</h3>
+        <p class="specialty-desc">Peças para redes sociais, campanhas digitais e materiais para mídias digitais.</p>
+      </div>
+      <div class="specialty-item">
+        <span class="specialty-icon" aria-hidden="true">⬡</span>
+        <h3 class="specialty-title">IA Generativa</h3>
+        <p class="specialty-desc">Engenharia de prompts e aplicação de inteligência artificial em processos criativos.</p>
+      </div>
+      <div class="specialty-item">
+        <span class="specialty-icon" aria-hidden="true">□</span>
+        <h3 class="specialty-title">Design Digital</h3>
+        <p class="specialty-desc">Dashboards, interfaces e soluções digitais que integram design e tecnologia.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ====================== EXPERIÊNCIA ====================== -->
+<section class="section" aria-labelledby="experience-title">
+  <div class="container">
+
+    <div class="reveal">
+      <p class="section-label">Trajetória</p>
+      <h2 class="section-title" id="experience-title">Experiência</h2>
+    </div>
+
+    <div class="experience-list reveal" style="margin-top: var(--space-xl)">
+
+      <div class="experience-item">
+        <div class="experience-period">Abr 2026<br>Atual</div>
+        <div class="experience-body">
+          <p class="experience-role">Engenheiro de Prompt e Designer Gráfico</p>
+          <p class="experience-company">Kyodo Agência</p>
+          <p class="experience-desc">Atuação em design gráfico, IA generativa, engenharia de prompts e desenvolvimento de soluções digitais. Desenvolvimento do Kyodo Hub — plataforma interna de gestão da agência.</p>
+          <div class="experience-tags">
+            <span class="experience-tag">IA Generativa</span>
+            <span class="experience-tag">Design Gráfico</span>
+            <span class="experience-tag">Dashboard</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-period">Jun 2025<br>Dez 2025</div>
+        <div class="experience-body">
+          <p class="experience-role">Designer Gráfico</p>
+          <p class="experience-company">Marra Web Marketing Digital</p>
+          <p class="experience-desc">Criação de peças gráficas e materiais digitais para comunicação de marcas, campanhas e mídias sociais.</p>
+          <div class="experience-tags">
+            <span class="experience-tag">Social Media</span>
+            <span class="experience-tag">Campanhas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-period">Jun 2024<br>Out 2024</div>
+        <div class="experience-body">
+          <p class="experience-role">Assistente de Design Pleno</p>
+          <p class="experience-company">ACIJ — Associação Empresarial de Joinville</p>
+          <p class="experience-desc">Criação de materiais gráficos corporativos, mídia kits, peças para eventos e campanhas institucionais.</p>
+          <div class="experience-tags">
+            <span class="experience-tag">Design Institucional</span>
+            <span class="experience-tag">Editorial</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-period">Jun 2023<br>Set 2023</div>
+        <div class="experience-body">
+          <p class="experience-role">Designer Gráfico</p>
+          <p class="experience-company">Spieler Sports</p>
+          <p class="experience-desc">Desenvolvimento de layouts e estampas para camisas e uniformes esportivos, com foco em projetos de futebol.</p>
+          <div class="experience-tags">
+            <span class="experience-tag">Design Esportivo</span>
+            <span class="experience-tag">Estampas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-period">Jun 2022<br>Jun 2023</div>
+        <div class="experience-body">
+          <p class="experience-role">Designer Gráfico</p>
+          <p class="experience-company">Delta Sports</p>
+          <p class="experience-desc">Criação de layouts e estampas para camisetas e uniformes esportivos a partir de briefings de clientes.</p>
+          <div class="experience-tags">
+            <span class="experience-tag">Design Esportivo</span>
+            <span class="experience-tag">Uniformes</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top: var(--space-xl)" class="reveal">
+      <a href="{{ url_for('about') }}" class="btn btn--ghost">
+        Ver perfil completo <span class="btn-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ====================== CTA ====================== -->
+<section class="cta-section" aria-labelledby="cta-title">
+  <div class="container">
+    <h2 class="cta-title reveal" id="cta-title">Vamos trabalhar juntos?</h2>
+    <p class="cta-subtitle reveal">Estratégia, criatividade e tecnologia transformadas em linguagem visual.</p>
+    <div class="hero-actions" style="justify-content: center" class="reveal">
+      <a href="{{ url_for('contact') }}" class="btn btn--primary">Entrar em Contato</a>
+      <a href="https://wa.me/5547988463036" target="_blank" rel="noopener noreferrer" class="btn btn--secondary">WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

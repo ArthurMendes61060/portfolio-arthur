@@ -1,0 +1,266 @@
+{% extends "base.html" %}
+
+{% block title %}Sobre — Arthur Mendes{% endblock %}
+{% block meta_description %}Conheça Arthur Mendes, Designer Gráfico e Engenheiro de Prompts com mais de 9 anos de trajetória em design, IA generativa e comunicação visual. Joinville, SC.{% endblock %}
+
+{% block content %}
+
+<!-- ========================= HERO SOBRE ========================= -->
+<section class="about-hero">
+  <div class="container">
+    <div class="about-hero-inner">
+
+      <!-- Foto -->
+      <div class="about-photo-wrap reveal">
+        <img
+          class="about-photo"
+          src="{{ url_for('static', filename='images/about/arthur-mendes.jpg') }}"
+          alt="Arthur Mendes, Designer Gráfico e Engenheiro de Prompts, Joinville SC"
+          loading="eager"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        >
+        <div class="about-photo-placeholder" style="display:none" aria-label="Foto de Arthur Mendes">
+          Foto em breve
+        </div>
+        <div class="about-photo-accent" aria-hidden="true"></div>
+      </div>
+
+      <!-- Texto -->
+      <div class="reveal">
+        <p class="section-label">Sobre mim</p>
+        <h1 class="section-title">Arthur<br>Mendes</h1>
+        <p style="color: var(--color-accent); font-family: var(--font-display); font-size: var(--text-sm); font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-top: var(--space-sm)">
+          Designer Gráfico · Engenheiro de Prompts
+        </p>
+        <p style="margin-top: var(--space-md); color: var(--color-text-muted); line-height: 1.8; font-size: var(--text-base)">
+          Sou designer gráfico e engenheiro de prompts com trajetória iniciada em 2017, combinando experiência prática, formação acadêmica e interesse constante por novas tecnologias.
+        </p>
+        <p style="margin-top: var(--space-sm); color: var(--color-text-muted); line-height: 1.8; font-size: var(--text-base)">
+          Meu principal diferencial é combinar criatividade, pensamento estratégico e tecnologia — utilizando inteligência artificial generativa, Claude Code e outras ferramentas digitais para pesquisar, explorar conceitos, desenvolver soluções e otimizar processos criativos.
+        </p>
+        <p style="margin-top: var(--space-sm); color: var(--color-text-muted); line-height: 1.8; font-size: var(--text-base)">
+          Trabalho com GitHub para organizar e versionar projetos, integrando design e desenvolvimento de forma mais estruturada. Meu objetivo não é utilizar a tecnologia para substituir o processo criativo, mas para ampliar possibilidades sem perder o olhar crítico e a sensibilidade do designer.
+        </p>
+
+        <div style="margin-top: var(--space-xl); display:flex; gap: var(--space-sm); flex-wrap:wrap">
+          <a href="{{ url_for('contact') }}" class="btn btn--primary">Entrar em Contato</a>
+          <a href="{{ url_for('static', filename='docs/curriculo-arthur-mendes.pdf') }}" class="btn btn--secondary" download aria-label="Baixar currículo de Arthur Mendes">
+            Baixar Currículo
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================= FORMAÇÃO ========================= -->
+<section class="section" style="background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border)" aria-labelledby="education-title">
+  <div class="container">
+    <p class="section-label reveal">Formação</p>
+    <h2 class="section-title reveal" id="education-title">Educação</h2>
+
+    <div class="experience-list reveal" style="margin-top: var(--space-xl)">
+
+      <div class="experience-item">
+        <div class="experience-period">2022<br>Em conclusão</div>
+        <div class="experience-body">
+          <p class="experience-role">Bacharelado em Design</p>
+          <p class="experience-company">Univille — Universidade da Região de Joinville</p>
+          <p class="experience-desc">
+            Design Gráfico e Digital. TCC entregue e aprovado em 2025. Restam duas disciplinas para a conclusão da graduação.
+          </p>
+          <div class="experience-tags">
+            <span class="experience-tag">Design Gráfico</span>
+            <span class="experience-tag">Design Digital</span>
+            <span class="experience-tag">TCC Aprovado</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-period">2017<br>Contínuo</div>
+        <div class="experience-body">
+          <p class="experience-role">Aprendizado Autodidata e Prática Profissional</p>
+          <p class="experience-company">Estudos Independentes</p>
+          <p class="experience-desc">
+            Desenvolvimento de habilidades em Python, HTML, GitHub, Claude Code, ChatGPT, ferramentas de IA generativa e automação de processos via JSX/ExtendScript para Adobe Photoshop. Conhecimento construído através de pesquisa, prática contínua e aplicação em projetos reais.
+          </p>
+          <div class="experience-tags">
+            <span class="experience-tag">Python</span>
+            <span class="experience-tag">HTML/CSS</span>
+            <span class="experience-tag">GitHub</span>
+            <span class="experience-tag">IA Generativa</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================= FERRAMENTAS ========================= -->
+<section class="section" aria-labelledby="tools-title">
+  <div class="container">
+    <p class="section-label reveal">Ferramentas</p>
+    <h2 class="section-title reveal" id="tools-title">O que uso</h2>
+
+    <div class="skills-grid reveal" style="margin-top: var(--space-xl)">
+      <div class="skill-item"><span class="skill-dot"></span>Adobe Photoshop</div>
+      <div class="skill-item"><span class="skill-dot"></span>Adobe Illustrator</div>
+      <div class="skill-item"><span class="skill-dot"></span>CorelDRAW</div>
+      <div class="skill-item"><span class="skill-dot"></span>Adobe After Effects</div>
+      <div class="skill-item"><span class="skill-dot"></span>ChatGPT</div>
+      <div class="skill-item"><span class="skill-dot"></span>Claude Code</div>
+      <div class="skill-item"><span class="skill-dot"></span>Midjourney</div>
+      <div class="skill-item"><span class="skill-dot"></span>GitHub</div>
+      <div class="skill-item"><span class="skill-dot"></span>Python</div>
+      <div class="skill-item"><span class="skill-dot"></span>HTML · CSS</div>
+      <div class="skill-item"><span class="skill-dot"></span>3D Coat Modding</div>
+      <div class="skill-item"><span class="skill-dot"></span>ExtendScript JSX</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= SERVIÇOS ========================= -->
+<section class="section" style="background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border)" aria-labelledby="services-title">
+  <div class="container">
+    <p class="section-label reveal">Serviços</p>
+    <h2 class="section-title reveal" id="services-title">O que ofereço</h2>
+
+    <div class="specialties-grid reveal" style="margin-top: var(--space-xl)">
+      <div class="specialty-item">
+        <h3 class="specialty-title">Identidade Visual</h3>
+        <p class="specialty-desc">Logos, sistemas de marca, manual de identidade visual e aplicações.</p>
+      </div>
+      <div class="specialty-item">
+        <h3 class="specialty-title">Direção de Arte</h3>
+        <p class="specialty-desc">Conceito visual e direcionamento estético para campanhas e projetos.</p>
+      </div>
+      <div class="specialty-item">
+        <h3 class="specialty-title">Design Esportivo</h3>
+        <p class="specialty-desc">Uniformes, estampas e identidade para times e marcas esportivas.</p>
+      </div>
+      <div class="specialty-item">
+        <h3 class="specialty-title">Social Media</h3>
+        <p class="specialty-desc">Posts, stories, campanhas e materiais digitais para redes sociais.</p>
+      </div>
+      <div class="specialty-item">
+        <h3 class="specialty-title">Design Editorial</h3>
+        <p class="specialty-desc">Manuais, catálogos, mídia kits e materiais impressos e digitais.</p>
+      </div>
+      <div class="specialty-item">
+        <h3 class="specialty-title">IA e Automação</h3>
+        <p class="specialty-desc">Engenharia de prompts, IA generativa e automação de processos criativos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= EXPERIÊNCIA ========================= -->
+<section class="section" aria-labelledby="experience-about-title">
+  <div class="container">
+    <p class="section-label reveal">Trajetória</p>
+    <h2 class="section-title reveal" id="experience-about-title">Experiência Profissional</h2>
+
+    <div class="experience-list reveal" style="margin-top: var(--space-xl)">
+
+      <div class="experience-item">
+        <div class="experience-period">Abr 2026<br>Atual</div>
+        <div class="experience-body">
+          <p class="experience-role">Engenheiro de Prompt e Designer Gráfico</p>
+          <p class="experience-company">Kyodo Agência · Joinville, SC</p>
+          <p class="experience-desc">Atuação em design gráfico, IA generativa, engenharia de prompts e desenvolvimento de soluções digitais para otimizar processos internos da agência. Desenvolvimento do Kyodo Hub — plataforma que centraliza e organiza as atividades da equipe.</p>
+          <div class="experience-tags">
+            <span class="experience-tag">IA Generativa</span>
+            <span class="experience-tag">Design Gráfico</span>
+            <span class="experience-tag">Engenharia de Prompts</span>
+            <span class="experience-tag">Dashboard</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-period">Jun 2025<br>Dez 2025</div>
+        <div class="experience-body">
+          <p class="experience-role">Designer Gráfico</p>
+          <p class="experience-company">Marra Web Marketing Digital · Joinville, SC</p>
+          <p class="experience-desc">Criação de peças gráficas e materiais digitais para comunicação de marcas, campanhas e mídias sociais.</p>
+          <div class="experience-tags">
+            <span class="experience-tag">Social Media</span>
+            <span class="experience-tag">Campanhas Digitais</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-period">Jun 2024<br>Out 2024</div>
+        <div class="experience-body">
+          <p class="experience-role">Assistente de Design Pleno</p>
+          <p class="experience-company">ACIJ — Associação Empresarial de Joinville · Joinville, SC</p>
+          <p class="experience-desc">Criação de materiais gráficos corporativos, mídia kits, peças para eventos, campanhas institucionais e conteúdos impressos e digitais para a Associação Empresarial de Joinville.</p>
+          <div class="experience-tags">
+            <span class="experience-tag">Design Institucional</span>
+            <span class="experience-tag">Editorial</span>
+            <span class="experience-tag">Eventos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-period">Jun 2023<br>Set 2023</div>
+        <div class="experience-body">
+          <p class="experience-role">Designer Gráfico</p>
+          <p class="experience-company">Spieler Sports · Joinville, SC</p>
+          <p class="experience-desc">Desenvolvimento de layouts e estampas para camisas e uniformes esportivos, com foco principalmente em projetos de futebol.</p>
+          <div class="experience-tags">
+            <span class="experience-tag">Design Esportivo</span>
+            <span class="experience-tag">Estampas</span>
+            <span class="experience-tag">Uniformes</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-period">Jun 2022<br>Jun 2023</div>
+        <div class="experience-body">
+          <p class="experience-role">Designer Gráfico</p>
+          <p class="experience-company">Delta Sports · Joinville, SC</p>
+          <p class="experience-desc">Criação de layouts e estampas para camisetas e uniformes esportivos, desenvolvidos a partir das necessidades e dos briefings de cada cliente.</p>
+          <div class="experience-tags">
+            <span class="experience-tag">Design Esportivo</span>
+            <span class="experience-tag">Uniformes</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-period">Freelancer</div>
+        <div class="experience-body">
+          <p class="experience-role">Designer Gráfico Autônomo</p>
+          <p class="experience-company">Projetos Independentes</p>
+          <p class="experience-desc">Desenvolvimento de peças para mídias sociais, identidades visuais e materiais gráficos para empresas dos segmentos de tecnologia, internet, alimentação e saúde. Projetos incluem Manual do Colaborador para a CLAMED e peças publicitárias para múltiplos clientes.</p>
+          <div class="experience-tags">
+            <span class="experience-tag">Identidade Visual</span>
+            <span class="experience-tag">Social Media</span>
+            <span class="experience-tag">Material Gráfico</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" aria-labelledby="cta-about-title">
+  <div class="container">
+    <h2 class="cta-title reveal" id="cta-about-title">Vamos trabalhar juntos?</h2>
+    <p class="cta-subtitle reveal">Entre em contato e vamos conversar sobre seu projeto.</p>
+    <div style="display:flex; gap: var(--space-sm); justify-content:center; flex-wrap:wrap;">
+      <a href="{{ url_for('contact') }}" class="btn btn--primary">Entrar em Contato</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
