@@ -1,5 +1,49 @@
 [
   {
+    "id": 9,
+    "title": "Hype4Seven — Novidades do Novo CT",
+    "slug": "hype4seven-novo-ct",
+    "categories": ["Social Media e Campanhas", "Design Esportivo"],
+    "year": "[adicionar depois]",
+    "client": "Hype4Seven",
+    "project_type": "Carrossel para Redes Sociais",
+    "role": "Designer — Criação de Arte e Organização Visual",
+    "summary": "Campanha visual em formato de carrossel para apresentar o novo centro de treinamento da Hype4Seven. Três pranchetas verticais (1080 × 1440 px) comunicando a fachada e identidade do espaço, a área de recovery e os equipamentos de treinamento.",
+    "challenge": "Distribuir informações sobre diferentes áreas do centro de treinamento em três pranchetas verticais, mantendo unidade visual, legibilidade e coerência com a identidade da marca.",
+    "objective": "Apresentar o novo centro de treinamento da Hype4Seven de maneira atrativa, destacando os ambientes, serviços e equipamentos relacionados ao desempenho e à recuperação esportiva.",
+    "process": "[adicionar depois]",
+    "tools": ["[adicionar depois]"],
+    "solution": "Criação de três peças verticais utilizando a identidade visual da Hype4Seven — contraste entre preto, branco e verde vibrante, tipografia de impacto, divisões diagonais, setas e indicações visuais — organizando a apresentação das novidades em uma sequência visual clara e coesa.",
+    "results": "[adicionar depois]",
+    "learnings": "[adicionar depois]",
+    "cover_image": "projects/hype4seven-novo-ct/prancheta-1.png",
+    "cover_position": "center top",
+    "gallery": [
+      {
+        "src": "projects/hype4seven-novo-ct/prancheta-1.png",
+        "alt": "Prancheta vertical de divulgação do novo centro de treinamento da Hype4Seven, apresentando a fachada, a identidade visual da marca e chamadas em preto, branco e verde vibrante.",
+        "caption": "Prancheta 1 — Apresentação do Novo CT"
+      },
+      {
+        "src": "projects/hype4seven-novo-ct/prancheta-2.png",
+        "alt": "Prancheta vertical da Hype4Seven apresentando a área de recovery do novo centro de treinamento, com imagens de recuperação ativa e bota de compressão.",
+        "caption": "Prancheta 2 — Área de Recovery"
+      },
+      {
+        "src": "projects/hype4seven-novo-ct/prancheta-3.png",
+        "alt": "Prancheta vertical da Hype4Seven destacando kettlebells, cadeira extensora e equipamentos de treino de força no novo centro de treinamento.",
+        "caption": "Prancheta 3 — Equipamentos e Treinamento"
+      }
+    ],
+    "external_link": null,
+    "gallery_layout": "vertical-trio",
+    "alt_texts": {
+      "cover": "Hype4Seven — Novidades do Novo CT. Prancheta de apresentação da fachada e identidade do novo centro de treinamento."
+    },
+    "featured": true,
+    "in_development": false
+  },
+  {
     "id": 1,
     "title": "Skin M4A4 — Design de Superfície em CS2",
     "slug": "skin-m4a4-cs2",

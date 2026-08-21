@@ -201,7 +201,7 @@
     <div class="case-section reveal">
       <p class="case-section-label">Galeria</p>
       <h2 class="case-section-title">Imagens do Projeto</h2>
-      <div class="case-gallery">
+      <div class="case-gallery{% if project.gallery_layout %} case-gallery--{{ project.gallery_layout }}{% endif %}">
         {% for item in project.gallery %}
           <div class="case-gallery-item">
             <img

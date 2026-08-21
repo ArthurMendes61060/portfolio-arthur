@@ -742,6 +742,18 @@
   margin-top: var(--space-xl);
 }
 
+/* Três pranchetas verticais 3:4 lado a lado */
+.case-gallery--vertical-trio {
+  grid-template-columns: repeat(3, 1fr);
+  align-items: start;
+}
+
+.case-gallery--vertical-trio .case-gallery-item img {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center top;
+}
+
 .case-gallery-item {
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -1073,6 +1085,10 @@
   }
 
   .case-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .case-gallery--vertical-trio {
     grid-template-columns: 1fr;
   }
 
